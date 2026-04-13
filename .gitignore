@@ -40,4 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-~/workspace/.claude/settings.local.json
+# Claude Code 로컬 설정
+.claude/settings.local.json
+
+# Playwright MCP 테스트 아티팩트
+.playwright-mcp/
+
+# 테스트 스크린샷
+*.png
