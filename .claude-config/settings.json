@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test *)",
+      "Bash(npm run build)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "sh /Users/annahan/.claude/statusline-command.sh"
+  },
+  "language": "korean",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/annahan/.claude/hooks/slack-notify.sh permission"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" Notification"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/annahan/.claude/hooks/slack-notify.sh stop"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" Stop"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/annahan/.claude/hooks/slack-notify.sh subagent"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" SubagentStop"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" SessionStart"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" SessionEnd"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" UserPromptSubmit"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/annahan/.claude/hooks/protect-sensitive-files.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" PreToolUse"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" PostToolUse"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" PostToolUseFailure"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" SubagentStart"
+          }
+        ]
+      }
+    ],
+    "Elicitation": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" Elicitation"
+          }
+        ]
+      }
+    ],
+    "WorktreeCreate": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" WorktreeCreate"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" PreCompact"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" PostCompact"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/usr/local/bin/node\" \"/Users/annahan/workspace/clawd-on-desk/hooks/clawd-hook.js\" StopFailure"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "http",
+            "url": "http://127.0.0.1:23333/permission",
+            "timeout": 600
+          }
+        ]
+      }
+    ]
+  }
+}
