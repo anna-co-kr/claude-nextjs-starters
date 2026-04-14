@@ -45,12 +45,14 @@ export default function SettingsPage() {
   });
 
   function onProfileSubmit(values: ProfileInput) {
-    console.log(values);
+    // TODO: API 호출 구현
+    void values;
     toast.success("프로필이 저장되었습니다.");
   }
 
   function onPasswordSubmit(values: ChangePasswordInput) {
-    console.log(values);
+    // TODO: API 호출 구현
+    void values;
     toast.success("비밀번호가 변경되었습니다.");
     passwordForm.reset();
   }

@@ -22,19 +22,19 @@ import { SIDEBAR_LINKS, ROUTES } from "@/lib/constants";
 export function CommandMenu() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const { commandMenuOpen, setCommandMenuOpen } = useUIStore();
+  const { commandMenuOpen, setCommandMenuOpen, toggleCommandMenu } = useUIStore();
 
   // ⌘K / Ctrl+K 단축키 등록
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setCommandMenuOpen(!commandMenuOpen);
+        toggleCommandMenu();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [commandMenuOpen, setCommandMenuOpen]);
+  }, [toggleCommandMenu]);
 
   const runCommand = (fn: () => void) => {
     setCommandMenuOpen(false);

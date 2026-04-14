@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/providers";
+import { APP_NAME, APP_DESCRIPTION } from "@/lib/constants";
 
 // globals.css의 @theme inline에서 --font-sans: var(--font-sans)로 매핑되므로
 // variable 이름을 "--font-sans"로 통일
@@ -15,9 +16,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const APP_NAME = "Next Starter";
-const APP_DESCRIPTION =
-  "Next.js 16 + React 19 + TailwindCSS v4 + shadcn/ui 기반 모던 웹 스타터킷";
 
 export const metadata: Metadata = {
   title: {

@@ -35,8 +35,8 @@ export default function LoginPage() {
   });
 
   function onSubmit(values: LoginInput) {
-    // 실제 앱: API 호출 위치
-    console.log(values);
+    // TODO: API 호출 구현
+    void values;
     toast.success("로그인 성공!", {
       description: "대시보드로 이동합니다.",
     });

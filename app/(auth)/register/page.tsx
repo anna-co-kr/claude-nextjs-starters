@@ -39,7 +39,8 @@ export default function RegisterPage() {
   });
 
   function onSubmit(values: RegisterInput) {
-    console.log(values);
+    // TODO: API 호출 구현
+    void values;
     toast.success("회원가입 완료!", {
       description: "이메일 인증 후 로그인해주세요.",
     });

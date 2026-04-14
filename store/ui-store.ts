@@ -10,6 +10,7 @@ interface UIState {
   // ⌘K 커맨드 메뉴 상태
   commandMenuOpen: boolean;
   setCommandMenuOpen: (open: boolean) => void;
+  toggleCommandMenu: () => void;
 }
 
 // persist 미들웨어로 사이드바 상태를 localStorage에 유지
@@ -23,6 +24,8 @@ export const useUIStore = create<UIState>()(
 
       commandMenuOpen: false,
       setCommandMenuOpen: (open) => set({ commandMenuOpen: open }),
+      toggleCommandMenu: () =>
+        set((state) => ({ commandMenuOpen: !state.commandMenuOpen })),
     }),
     {
       name: "ui-state", // localStorage 키 이름

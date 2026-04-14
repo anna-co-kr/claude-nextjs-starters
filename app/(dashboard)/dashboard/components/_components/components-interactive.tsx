@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { ChevronDown, Settings, LogOut, User, Copy, Check } from "lucide-react";
 import { useCopyToClipboard } from "usehooks-ts";
@@ -40,11 +40,20 @@ export function ComponentsInteractive() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [, copy] = useCopyToClipboard();
   const [copied, setCopied] = useState(false);
+  // 타이머 ref: 언마운트 시 clearTimeout으로 메모리 누수 방지
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const handleCopy = async () => {
     await copy("복사된 텍스트입니다!");
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setCopied(false), 2000);
   };
 
   return (

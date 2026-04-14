@@ -77,7 +77,8 @@ export default function FormsPage() {
   });
 
   function onSubmit(values: ProfileInput) {
-    console.log(values);
+    // TODO: API 호출 구현
+    void values;
     toast.success("프로필이 저장되었습니다.");
   }
 
